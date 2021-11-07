@@ -28,7 +28,7 @@ class CustomText extends StatelessWidget {
       maxLines: maxLines,
       overflow: maxLines != null ? TextOverflow.ellipsis : null,
       style: TextStyle(
-        fontWeight: FontWeight.bold,
+        fontWeight: fontWeight ?? FontWeight.bold,
         fontSize: fontSize ?? 22.sp,
         color: color ?? Colors.black,
         fontFamily: fontFamily ?? 'Tajawal-Regular',

@@ -40,6 +40,8 @@ dependencies:
   url_launcher:
   flutter_launcher_icons:
   flutter_native_splash:
+  search_choices:
+
 
 
 dev_dependencies:
