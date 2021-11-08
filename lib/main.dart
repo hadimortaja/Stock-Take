@@ -8,6 +8,7 @@ import 'package:stocktake/value/app_get.dart';
 import 'package:stocktake/value/colors.dart';
 import 'package:stocktake/view/about_screen.dart';
 import 'package:stocktake/view/home_page.dart';
+import 'package:stocktake/view/option_screen.dart';
 import 'package:stocktake/view/qr_code_server_settings_screen.dart';
 import 'package:stocktake/view/sql_server_setting_screen.dart';
 

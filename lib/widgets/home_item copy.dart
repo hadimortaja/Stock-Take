@@ -4,22 +4,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stocktake/value/colors.dart';
 import 'package:stocktake/widgets/custom_text.dart';
 
-class HomeItem extends StatelessWidget {
+class HomeItem1 extends StatelessWidget {
   final String? title;
   final String? hint;
   final double? sized;
   final double? cHeight;
   final Widget? child;
   final bool? hasFocus;
+  final String? initialVal;
   final FontWeight? fontWeight;
-  HomeItem(
+  HomeItem1(
       {this.title,
       this.hint,
       this.cHeight,
       this.sized,
       this.child,
       this.fontWeight,
-      this.hasFocus});
+      this.hasFocus,
+      this.initialVal});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,7 +30,7 @@ class HomeItem extends StatelessWidget {
           children: [
             Container(
               constraints: BoxConstraints(
-                maxWidth: 65.w,
+                maxWidth: 120.w,
               ),
               child: CustomText(
                 title ?? "",
@@ -48,7 +50,7 @@ class HomeItem extends StatelessWidget {
                   padding: EdgeInsets.only(left: 8.0.w, top: 10.h),
                   child: TextFormField(
                     style: TextStyle(color: Colors.white),
-
+                    initialValue: initialVal ?? "",
                     decoration: InputDecoration(
                       hintText: hint ?? "",
                       border: InputBorder.none,
@@ -83,7 +85,7 @@ class HomeItem extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 8.h,
+          height: 15.h,
         ),
       ],
     );

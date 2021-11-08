@@ -476,7 +476,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     SizedBox(
-                      height: 15.h,
+                      height: 8.h,
                     ),
                     Row(
                       children: [
@@ -554,7 +554,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     SizedBox(
-                      height: 15.h,
+                      height: 8.h,
                     ),
                     HomeItem(
                       title: "Description",
