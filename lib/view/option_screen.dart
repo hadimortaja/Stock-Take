@@ -226,10 +226,358 @@ class _OptionScreenState extends State<OptionScreen> {
                             title: "Flag Digit",
                             sized: 20.w,
                           ),
-                          Container(
-                            width: Get.width,
-                            height: 200.h,
-                            color: Colors.white,
+                          Row(children: [
+                            SizedBox(
+                              width: 90.w,
+                            ),
+                            CustomText(
+                              "Start",
+                              color: Colors.white,
+                              fontSize: 14.sp,
+                            ),
+                            SizedBox(
+                              width: 60.w,
+                            ),
+                            CustomText(
+                              "End",
+                              color: Colors.white,
+                              fontSize: 14.sp,
+                            ),
+                            SizedBox(
+                              width: 40.w,
+                            ),
+                            CustomText(
+                              "Decimal",
+                              color: Colors.white,
+                              fontSize: 14.sp,
+                            ),
+                          ]),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Row(
+                            children: [
+                              CustomText(
+                                "ItemCode",
+                                color: Colors.white,
+                                fontSize: 14.sp,
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.increment1();
+                                  },
+                                  icon: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                  )),
+                              Container(
+                                height: 25.h,
+                                width: 25.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.secondaryColor),
+                                child: Center(
+                                  child: CustomText(
+                                    _.value1.toString(),
+                                    fontSize: 14.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.dicrement1();
+                                  },
+                                  icon: Icon(
+                                    Icons.remove,
+                                    color: Colors.red,
+                                  )),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.increment2();
+                                  },
+                                  icon: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                  )),
+                              Container(
+                                height: 25.h,
+                                width: 25.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.secondaryColor),
+                                child: Center(
+                                  child: CustomText(
+                                    _.value2.toString(),
+                                    fontSize: 14.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.dicrement3();
+                                  },
+                                  icon: Icon(
+                                    Icons.remove,
+                                    color: Colors.red,
+                                  )),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Row(
+                            children: [
+                              CustomText(
+                                "Quantity",
+                                color: Colors.white,
+                                fontSize: 14.sp,
+                              ),
+                              SizedBox(
+                                width: 16.w,
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.increment1();
+                                  },
+                                  icon: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                  )),
+                              Container(
+                                height: 25.h,
+                                width: 25.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.secondaryColor),
+                                child: Center(
+                                  child: CustomText(
+                                    _.value1.toString(),
+                                    fontSize: 14.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.dicrement1();
+                                  },
+                                  icon: Icon(
+                                    Icons.remove,
+                                    color: Colors.red,
+                                  )),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.increment2();
+                                  },
+                                  icon: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                  )),
+                              Container(
+                                height: 25.h,
+                                width: 25.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.secondaryColor),
+                                child: Center(
+                                  child: CustomText(
+                                    _.value2.toString(),
+                                    fontSize: 14.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.dicrement3();
+                                  },
+                                  icon: Icon(
+                                    Icons.remove,
+                                    color: Colors.red,
+                                  )),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.increment3();
+                                  },
+                                  icon: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                  )),
+                              Container(
+                                height: 25.h,
+                                width: 25.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.secondaryColor),
+                                child: Center(
+                                  child: CustomText(
+                                    _.value3.toString(),
+                                    fontSize: 14.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.dicrement3();
+                                  },
+                                  icon: Icon(
+                                    Icons.remove,
+                                    color: Colors.red,
+                                  )),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Row(
+                            children: [
+                              CustomText(
+                                "Price",
+                                color: Colors.white,
+                                fontSize: 14.sp,
+                              ),
+                              SizedBox(
+                                width: 37.w,
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.increment1();
+                                  },
+                                  icon: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                  )),
+                              Container(
+                                height: 25.h,
+                                width: 25.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.secondaryColor),
+                                child: Center(
+                                  child: CustomText(
+                                    _.value1.toString(),
+                                    fontSize: 14.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.dicrement1();
+                                  },
+                                  icon: Icon(
+                                    Icons.remove,
+                                    color: Colors.red,
+                                  )),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.increment2();
+                                  },
+                                  icon: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                  )),
+                              Container(
+                                height: 25.h,
+                                width: 25.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.secondaryColor),
+                                child: Center(
+                                  child: CustomText(
+                                    _.value2.toString(),
+                                    fontSize: 14.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.dicrement3();
+                                  },
+                                  icon: Icon(
+                                    Icons.remove,
+                                    color: Colors.red,
+                                  )),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.increment3();
+                                  },
+                                  icon: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                  )),
+                              Container(
+                                height: 25.h,
+                                width: 25.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.secondaryColor),
+                                child: Center(
+                                  child: CustomText(
+                                    _.value3.toString(),
+                                    fontSize: 14.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                  padding: const EdgeInsets.all(0.0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {
+                                    _.dicrement3();
+                                  },
+                                  icon: Icon(
+                                    Icons.remove,
+                                    color: Colors.red,
+                                  )),
+                            ],
                           ),
                           SizedBox(
                             height: 30.h,

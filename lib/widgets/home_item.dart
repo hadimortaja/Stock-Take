@@ -11,6 +11,7 @@ class HomeItem extends StatelessWidget {
   final double? cHeight;
   final Widget? child;
   final bool? hasFocus;
+  final Function()? onTap;
   final FontWeight? fontWeight;
   HomeItem(
       {this.title,
@@ -19,7 +20,8 @@ class HomeItem extends StatelessWidget {
       this.sized,
       this.child,
       this.fontWeight,
-      this.hasFocus});
+      this.hasFocus,
+      this.onTap});
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -4,6 +4,9 @@ class AppGet extends GetxController {
   //======================== Home Screen ===================
   bool isChecked = false;
   int value = -1;
+  int value1 = 0;
+  int value2 = 0;
+  int value3 = 0;
 
   setIsChecked() {
     this.isChecked = !isChecked;
@@ -84,6 +87,36 @@ class AppGet extends GetxController {
   bool saveInvalidCode = false;
   setSaveInvalidCode() {
     this.saveInvalidCode = !saveInvalidCode;
+    update();
+  }
+
+  dicrement1() {
+    value1--;
+    update();
+  }
+
+  increment1() {
+    value1++;
+    update();
+  }
+
+  dicrement2() {
+    value2--;
+    update();
+  }
+
+  increment2() {
+    value2++;
+    update();
+  }
+
+  dicrement3() {
+    value3--;
+    update();
+  }
+
+  increment3() {
+    value3++;
     update();
   }
 }

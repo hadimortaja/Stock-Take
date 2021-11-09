@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:search_choices/search_choices.dart';
 import 'package:stocktake/value/app_get.dart';
@@ -19,6 +21,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String _scanBarcode = '';
+
+  Future<void> scanBarcodeNormal() async {
+    String barcodeScanRes;
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.BARCODE);
+      print(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+    if (!mounted) return;
+
+    setState(() {
+      _scanBarcode = barcodeScanRes;
+    });
+  }
+
   AppGet appGet = Get.find();
   TextEditingController _textEditingController = TextEditingController();
 
@@ -130,173 +151,150 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        // print('')
-                        // Container(
-                        //     width: double.infinity,
-                        //     // height: 68.h,
-                        //     padding: EdgeInsets.symmetric(horizontal: 5.w),
-                        //     decoration: BoxDecoration(
-                        //       borderRadius: BorderRadius.circular(10.0),
-                        //       color: const Color(0xffffffff),
-                        //       border: Border.all(
-                        //           width: 0.3, color: const Color(0xffd8d8d8)),
-                        //       boxShadow: [
-                        //         BoxShadow(
-                        //           color: const Color(0x0f000000),
-                        //           offset: Offset(0, 5),
-                        //           blurRadius: 5,
-                        //         ),
-                        //       ],
-                        //     ),
-                        //     child: Center(
-                        //         child: SearchChoices.multiple(
-                        //       items: [].map<DropdownMenuItem<dynamic>>(
-                        //         (e) {
-                        //           return DropdownMenuItem(
-                        //               child: CustomText(
-                        //                 e['name'],
-                        //                 fontSize: 16.sp,
-                        //               ),
-                        //               onTap: () {
-                        //                 // controller
-                        //                 //     .setCatregoryData(
-                        //                 //         e);
-                        //                 // appGetController
-                        //                 //     .addIntrest(
-                        //                 //         e);
-                        //               },
-                        //               value: e['name']);
-                        //         },
-                        //       ).toList(),
-                        //       // selectedItems: controller
-                        //       //     .selectedItemsMultiCustomDisplayDialog,
-                        //       hint: Padding(
-                        //         padding: const EdgeInsets.all(12.0),
-                        //         child: CustomText(
-                        //           'select_the_place',
-                        //           fontSize: 16.sp,
-                        //         ),
-                        //       ),
-                        //       searchHint: "Select The Place",
-                        //       onChanged: (value) {
-                        //         print("rrrrrrrrrrrrrrrrrrr $value");
-
-                        //         // controller.setSelectedDrop(value);
-                        //         value.toList().map((e) {
-                        //           // print("ccccccccvvvvvvvvvvvvvvv");
-                        //           // controller.setCitesListId(controller
-                        //           //     .getCitesMap.value['data'][e]['id']
-                        //           //     .toString());
-                        //           // print(
-                        //           //     "rrrrrrrrrrrrrrrrrrrrrrrr ${controller.getCitesMap.value['data'][e]['id']}");
-                        //         }).toList();
-                        //         // setState(() {
-                        //         //   selectedItemsMultiCustomDisplayDialog =
-                        //         //       value;
-                        //         // });
-                        //       },
-                        //       displayItem: (item, selected) {
-                        //         return (Row(children: [
-                        //           selected
-                        //               ? Icon(
-                        //                   Icons.check,
-                        //                   color: Colors.green,
-                        //                 )
-                        //               : Icon(
-                        //                   Icons.check_box_outline_blank,
-                        //                   color: Colors.grey,
-                        //                 ),
-                        //           SizedBox(width: 7),
-                        //           Expanded(
-                        //             child: item,
-                        //           ),
-                        //         ]));
-                        //       },
-                        //       rightToLeft: true,
-
-                        //       selectedValueWidgetFn: (item) {
-                        //         return SizedBox(
-                        //           width: Get.width,
-                        //           child: Row(
-                        //             children: [
-                        //               Card(
-
-                        //                   // shape: RoundedRectangleBorder(
-                        //                   //   borderRadius:
-                        //                   //       BorderRadius.circular(10),
-                        //                   //   side: BorderSide(
-                        //                   //     color: Colors.brown,
-                        //                   //     width: 0.5,
-                        //                   //   ),
-                        //                   // ),
-                        //                   margin: EdgeInsets.all(12),
-                        //                   child: Padding(
-                        //                     padding: const EdgeInsets.all(8),
-                        //                     child: CustomText(
-                        //                       item.toString(),
-                        //                       fontSize: 16.sp,
-                        //                     ),
-                        //                   )),
-                        //             ],
-                        //           ),
-                        //         );
-                        //       },
-                        //       doneButton: (selectedItemsDone, doneContext) {
-                        //         return (RaisedButton(
-                        //             onPressed: () {
-                        //               Navigator.pop(doneContext);
-                        //               setState(() {});
-                        //             },
-                        //             child: Text("Save")));
-                        //       },
-                        //       closeButton: null,
-                        //       style: TextStyle(fontStyle: FontStyle.italic),
-                        //       searchFn: (String keyword, items) {
-                        //         var ret = <int>[];
-                        //         if (keyword != null &&
-                        //             items != null &&
-                        //             keyword.isNotEmpty) {
-                        //           keyword.split(" ").forEach((k) {
-                        //             int i = 0;
-                        //             items.forEach((item) {
-                        //               if (k.isNotEmpty &&
-                        //                   (item.value
-                        //                       .toString()
-                        //                       .toLowerCase()
-                        //                       .contains(k.toLowerCase()))) {
-                        //                 ret.add(i);
-                        //               }
-                        //               i++;
-                        //             });
-                        //           });
-                        //         }
-                        //         if (keyword.isEmpty) {
-                        //           ret = Iterable<int>.generate(items.length)
-                        //               .toList();
-                        //         }
-                        //         return (ret);
-                        //       },
-                        //       clearIcon: Icon(Icons.clear_all),
-                        //       icon: null,
-                        //       //label: "Label for multi",
-                        //       underline: Container(
-                        //           // height: 1.0,
-                        //           // decoration: BoxDecoration(
-                        //           //     border: Border(
-                        //           //         bottom: BorderSide(
-                        //           //             color: Colors.teal,
-                        //           //             width: 3.0))),
-                        //           ),
-                        //       iconDisabledColor: Colors.brown,
-                        //       iconEnabledColor: Colors.indigo,
-                        //       isExpanded: true,
-                        //     )));
+                        showDialog<void>(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text(
+                                'Shelf',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              content: SingleChildScrollView(
+                                child: ListBody(
+                                  children: <Widget>[
+                                    Row(
+                                      children: [
+                                        Flexible(
+                                          flex: 2,
+                                          child: TextFormField(
+                                            controller: _textEditingController,
+                                            decoration: InputDecoration(
+                                                hintText: "Select Shelf"),
+                                          ),
+                                        ),
+                                        Flexible(
+                                          flex: 1,
+                                          child: CustomButton(
+                                            onTap: () {
+                                              scanBarcodeNormal();
+                                            },
+                                            cWidth: 80.w,
+                                            cHeight: 30.h,
+                                            title: "Scan",
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
                       },
-                      child: HomeItem(
-                        title: "Shelf",
-                        sized: 40.w,
+                      child: Row(
+                        children: [
+                          CustomText(
+                            "Shelf",
+                            color: Colors.white,
+                            fontSize: 14.sp,
+                          ),
+                          SizedBox(
+                            width: 40.w,
+                          ),
+                          Container(
+                            width: 303.w,
+                            height: 30.h,
+                            decoration:
+                                BoxDecoration(color: AppColors.secondaryColor),
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 8.0.w, top: 10.h),
+                              child: TextFormField(
+                                style: TextStyle(color: Colors.white),
+
+                                decoration: InputDecoration(
+                                  // hintText: hint ?? "",
+                                  border: InputBorder.none,
+                                  hintStyle: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                enableInteractiveSelection:
+                                    false, // will disable paste operation
+                                focusNode: AlwaysDisabledFocusNode(),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    // HomeItem(
+                    //   title: "Shelf",
+                    //   sized: 40.w,
+                    //   onTap: () {
+                    //     print("dddd");
+                    //     showDialog<void>(
+                    //       barrierDismissible: true,
+                    //       context: context,
+                    //       builder: (BuildContext context) {
+                    //         return AlertDialog(
+                    //           title: const Text(
+                    //             'Password',
+                    //             style: TextStyle(fontWeight: FontWeight.bold),
+                    //           ),
+                    //           content: SingleChildScrollView(
+                    //             child: ListBody(
+                    //               children: <Widget>[
+                    //                 TextFormField(
+                    //                   controller: _textEditingController,
+                    //                 ),
+                    //               ],
+                    //             ),
+                    //           ),
+                    //           actions: <Widget>[
+                    //             TextButton(
+                    //               child: const Text(
+                    //                 'No',
+                    //                 style:
+                    //                     TextStyle(fontWeight: FontWeight.bold),
+                    //               ),
+                    //               onPressed: () {
+                    //                 Navigator.of(context).pop();
+                    //               },
+                    //             ),
+                    //             TextButton(
+                    //               child: const Text(
+                    //                 'yes',
+                    //                 style:
+                    //                     TextStyle(fontWeight: FontWeight.bold),
+                    //               ),
+                    //               onPressed: () {
+                    //                 if (_textEditingController.text
+                    //                         .toString() ==
+                    //                     "123456") {
+                    //                   Get.back();
+                    //                   Get.to(() => OptionScreen());
+
+                    //                   _textEditingController.clear();
+                    //                 } else {
+                    //                   _textEditingController.clear();
+
+                    //                   setToast("Wrong Password");
+                    //                 }
+                    //               },
+                    //             ),
+                    //           ],
+                    //         );
+                    //       },
+                    //     );
+                    //   },
+                    // ),
+
                     HomeItem(
                       title: "Indicator",
                       sized: 20.w,
@@ -336,10 +334,13 @@ class _HomePageState extends State<HomePage> {
                       height: 10.h,
                     ),
                     HomeItem(
+                        hint: _scanBarcode,
                         title: "BarCode",
                         sized: 10.w,
                         child: CustomButton(
-                          onTap: () {},
+                          onTap: () {
+                            scanBarcodeNormal();
+                          },
                           title: "Scan",
                           color: Colors.grey,
                         )),
@@ -643,6 +644,7 @@ class _HomePageState extends State<HomePage> {
             );
           },
         );
+
         break;
       case 2:
         Get.to(() => AboutScreen());

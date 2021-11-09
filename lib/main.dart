@@ -11,6 +11,7 @@ import 'package:stocktake/view/home_page.dart';
 import 'package:stocktake/view/option_screen.dart';
 import 'package:stocktake/view/qr_code_server_settings_screen.dart';
 import 'package:stocktake/view/sql_server_setting_screen.dart';
+import 'package:stocktake/widgets/home_item.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

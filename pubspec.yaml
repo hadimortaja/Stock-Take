@@ -41,6 +41,8 @@ dependencies:
   flutter_launcher_icons:
   flutter_native_splash:
   search_choices:
+  flutter_barcode_scanner: ^2.0.0
+
 
 
 
