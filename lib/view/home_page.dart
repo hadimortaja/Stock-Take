@@ -575,11 +575,19 @@ class _HomePageState extends State<HomePage> {
             Positioned(
               bottom: 3.h,
               child: Container(
-                height: 200.h,
+                height: 250.h,
                 width: Get.width,
                 decoration: BoxDecoration(
                     color: AppColors.primaryColor,
                     border: Border.all(color: Colors.white, width: 3.w)),
+                child: SizedBox(
+                    width: Get.width,
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        return Item();
+                      },
+                      itemCount: 2,
+                    )),
               ),
             )
           ],
@@ -658,5 +666,100 @@ class _HomePageState extends State<HomePage> {
         SystemNavigator.pop();
         break;
     }
+  }
+}
+
+class Item extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 15.h, left: 8.w, right: 8.w),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomText("Indicator", color: Colors.grey, fontSize: 14.sp),
+              Row(
+                children: [
+                  CustomText("Shelf", color: Colors.grey, fontSize: 14.sp),
+                  SizedBox(
+                    width: 5.h,
+                  ),
+                  CustomText("A1", color: Colors.white, fontSize: 14.sp),
+                ],
+              ),
+              CustomText("StockTake", color: Colors.blue, fontSize: 14.sp),
+            ],
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          Row(
+            children: [
+              CustomText("BarCode", color: Colors.grey, fontSize: 14.sp),
+              SizedBox(
+                width: 5.h,
+              ),
+              CustomText("100001", color: Colors.white, fontSize: 14.sp),
+              SizedBox(
+                width: 120.w,
+              ),
+              CustomText("ItemCode", color: Colors.grey, fontSize: 14.sp),
+              SizedBox(
+                width: 5.h,
+              ),
+              CustomText("100001", color: Colors.white, fontSize: 14.sp),
+            ],
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          Row(
+            children: [
+              CustomText("UOM", color: Colors.grey, fontSize: 14.sp),
+              SizedBox(
+                width: 5.h,
+              ),
+              CustomText("UNIT", color: Colors.white, fontSize: 14.sp),
+              SizedBox(
+                width: 152.w,
+              ),
+              CustomText("Quantity", color: Colors.grey, fontSize: 14.sp),
+              SizedBox(
+                width: 5.h,
+              ),
+              CustomText("5", color: Colors.white, fontSize: 14.sp),
+            ],
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          Row(
+            children: [
+              CustomText("BatchNo", color: Colors.grey, fontSize: 14.sp),
+            ],
+          ),
+          SizedBox(
+            height: 15.h,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              CustomText(DateTime.now().toString(),
+                  color: Colors.white, fontSize: 14.sp),
+            ],
+          ),
+          Divider(
+            color: Colors.white,
+            thickness: 1,
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+        ],
+      ),
+    );
+    ;
   }
 }
